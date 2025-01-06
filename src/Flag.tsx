@@ -5,13 +5,15 @@ interface Props {
 }
 
 export const Flag: React.FC<Props> = ({ flag }) => {
-    const [flagToUse, setFlagToUse] = useState('');
+    const [flagToUse, setFlagToUse] = useState<string[]>([]);
 
     useEffect(() => {
         for (const [index, character] of [...flag].entries()) {
-            setTimeout(() => setFlagToUse((prev: string) => prev + character), index * 500);
+            setTimeout(() => setFlagToUse((prev: string[]) => [...prev, character]), index * 500);
         }
     }, [])
 
-    return <h1>{flagToUse}</h1>;
+    return <ul>
+        {flagToUse.map((character: string) => <li>{character}</li>)}
+    </ul>;
 }
