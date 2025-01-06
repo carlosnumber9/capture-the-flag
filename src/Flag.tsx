@@ -14,6 +14,6 @@ export const Flag: React.FC<Props> = ({ flag }) => {
     }, [])
 
     return <ul>
-        {flagToUse.map((character: string) => <li>{character}</li>)}
+        {flagToUse.map((character: string) => <li key={`flag-${character}`}>{character}</li>)}
     </ul>;
 }
