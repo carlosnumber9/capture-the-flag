@@ -10,7 +10,7 @@ const getFlagURLFromDocument = (document: Document | undefined): string => {
 };
 
 export const getFlagURL = async (): Promise<string> => {
-    const challengeHTML: string | undefined = await getHTML('https://tns4lpgmziiypnxxzel5ss5nyu0nftol.lambda-url.us-east-1.on.aws/challenge');
+    const challengeHTML: string | undefined = await getHTML(import.meta.env.VITE_FLAG_HOLDER_URL);
     if (challengeHTML) {
         const parser: DOMParser = new DOMParser();
         const document: Document = parser.parseFromString(challengeHTML, "text/html");
